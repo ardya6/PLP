@@ -1791,5 +1791,44 @@ window.addEventListener("click", function(e){
     }
 });
 </script>
-</body>
-</html>
+(e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateX = ((y / rect.height) - 0.5) * -8;
+    const rotateY = ((x / rect.width) - 0.5) * 8;
+    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+</script>
+<<<<<<< HEAD
+<script>
+const loginBtn = document.getElementById("openLogin");
+const loginModal = document.getElementById("loginModal");
+const closeModal = document.querySelector(".close-modal");
+
+if(loginBtn){
+    loginBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        loginModal.classList.add("active");
+    });
+}
+
+if(closeModal){
+    closeModal.addEventListener("click", function(){
+        loginModal.classList.remove("active");
+    });
+}
+
+window.addEventListener("click", function(e){
+    if(e.target === loginModal){
+        loginModal.classList.remove("active");
+    }
+});
+</script>
+=======
+>>>>>>> 947b5f5df4e82653e4b0aaffc077bf7565ca9fe0
