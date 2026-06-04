@@ -982,6 +982,258 @@ section .lead {
   width: min(1040px, calc(100% - 48px));
 }
 
+/* ── THREAT SLIDESHOW ── */
+.threat-slideshow {
+  margin-top: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  box-shadow: 0 30px 80px rgba(0,0,0,0.30);
+}
+
+.threat-slides-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.threat-slide {
+  min-width: 100%;
+  padding: 2.6rem 2.4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.slide-header {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.slide-badge {
+  width: 78px;
+  height: 78px;
+  min-width: 78px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 16px 40px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.slide-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,0.18), transparent 55%);
+  opacity: 0.7;
+}
+
+.slide-badge.red    { background: linear-gradient(135deg, rgba(255,80,80,0.35),  rgba(255,200,87,0.15)); }
+.slide-badge.orange { background: linear-gradient(135deg, rgba(255,167,51,0.35), rgba(255,200,87,0.15)); }
+.slide-badge.purple { background: linear-gradient(135deg, rgba(139,92,246,0.35), rgba(125,211,252,0.1)); }
+.slide-badge.teal   { background: linear-gradient(135deg, rgba(45,212,191,0.35), rgba(125,211,252,0.1)); }
+.slide-badge.blue   { background: linear-gradient(135deg, rgba(79,124,255,0.35), rgba(125,211,252,0.15)); }
+
+.slide-title-wrap {
+  flex: 1;
+}
+
+.slide-num {
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.slide-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.slide-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+@media (max-width: 720px) {
+  .slide-body { grid-template-columns: 1fr; }
+  .threat-slide { padding: 1.8rem 1.4rem 1.5rem; }
+}
+
+.slide-desc-panel,
+.slide-example-panel {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 1.4rem 1.5rem;
+}
+
+.panel-tag {
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 0.9rem;
+}
+
+.panel-tag.desc-tag {
+  background: rgba(125,211,252,0.12);
+  color: #9edbff;
+  border: 1px solid rgba(125,211,252,0.2);
+}
+
+.panel-tag.example-tag {
+  background: rgba(255,200,87,0.12);
+  color: #ffd97d;
+  border: 1px solid rgba(255,200,87,0.22);
+}
+
+.slide-desc-panel p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.82;
+}
+
+.example-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.example-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.example-dot {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  background: linear-gradient(135deg, #ffc857, #7dd3fc);
+  box-shadow: 0 0 10px rgba(255,200,87,0.4);
+}
+
+.example-item p {
+  font-size: 0.85rem;
+  color: #c8d6f0;
+  line-height: 1.65;
+}
+
+.example-item strong {
+  color: #ffd97d;
+  font-weight: 800;
+}
+
+/* slideshow controls */
+.slideshow-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.4rem 1.6rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.slide-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.slide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.slide-dot.active {
+  background: linear-gradient(135deg, #7dd3fc, #4f7cff);
+  width: 28px;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(125,211,252,0.5);
+}
+
+.slide-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #eaf2ff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.slide-arrow:hover {
+  background: rgba(125,211,252,0.15);
+  border-color: rgba(125,211,252,0.4);
+  transform: scale(1.08);
+}
+
+.slide-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.slide-progress-wrap {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 0 0 30px 30px;
+  overflow: hidden;
+}
+
+.slide-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4f7cff, #7dd3fc, #ffc857);
+  border-radius: 999px;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px rgba(125,211,252,0.4);
+}
+
+.slide-counter {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+  min-width: 42px;
+  text-align: center;
+}
+
 /* ── STATS SECTION ── */
 .stats-section {
   padding: 4rem 2rem;
@@ -1906,72 +2158,183 @@ footer strong {
     <p class="lead">Kenali jenis-jenis serangan siber yang sering terjadi agar Anda bisa lebih waspada dan terlindungi.</p>
   </div>
 
-  <div style="margin-top:2.5rem" class="reveal">
-    <div class="threat-card">
-      <div class="threat-badge red">💣</div>
-      <div class="threat-content">
-        <h3>Ransomware</h3>
-        <p>Jenis serangan yang mengunci atau mengenkripsi data pada perangkat korban sehingga tidak dapat diakses, lalu pelaku meminta tebusan agar data dikembalikan. Serangan ini sangat berbahaya karena dapat menyebabkan kehilangan data penting secara permanen.</p>
+  <!-- THREAT SLIDESHOW -->
+  <div class="threat-slideshow reveal" id="threatSlideshow">
+    <div class="threat-slides-track" id="slideTrack">
+
+      <!-- SLIDE 1: RANSOMWARE -->
+      <div class="threat-slide">
+        <div class="slide-header">
+          <div class="slide-badge red">💣</div>
+          <div class="slide-title-wrap">
+            <div class="slide-num">Ancaman 01 / 05</div>
+            <div class="slide-title">Ransomware</div>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-desc-panel">
+            <span class="panel-tag desc-tag">📖 Penjelasan</span>
+            <p>Jenis serangan yang <strong style="color:#fff">mengunci atau mengenkripsi data</strong> pada perangkat korban sehingga tidak dapat diakses. Pelaku kemudian meminta sejumlah uang tebusan (biasanya dalam bentuk kripto) agar data dapat dikembalikan. Sangat berbahaya karena dapat menyebabkan kehilangan data permanen jika tebusan tidak dibayar.</p>
+          </div>
+          <div class="slide-example-panel">
+            <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>WannaCry (2017)</strong> — Menyerang 200.000+ komputer di 150 negara dalam 1 hari, termasuk rumah sakit di Inggris yang terpaksa menolak pasien.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>REvil (2021)</strong> — Mengunci sistem Kaseya dan meminta tebusan $70 juta dalam Bitcoin dari ribuan perusahaan klien mereka.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Petya/NotPetya</strong> — Menyebabkan kerugian $10 miliar global, melumpuhkan perusahaan logistik Maersk selama beberapa hari.</p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- SLIDE 2: MALWARE -->
+      <div class="threat-slide">
+        <div class="slide-header">
+          <div class="slide-badge orange">🦠</div>
+          <div class="slide-title-wrap">
+            <div class="slide-num">Ancaman 02 / 05</div>
+            <div class="slide-title">Malware</div>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-desc-panel">
+            <span class="panel-tag desc-tag">📖 Penjelasan</span>
+            <p>Perangkat lunak berbahaya (<strong style="color:#fff">malicious software</strong>) yang dirancang untuk merusak, mencuri data, atau mengendalikan perangkat tanpa izin pengguna. Meliputi virus, trojan horse, spyware, adware, dan worm yang dapat masuk melalui unduhan atau situs berbahaya.</p>
+          </div>
+          <div class="slide-example-panel">
+            <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Emotet Trojan</strong> — Menyebar via email lampiran Word, mencuri data perbankan jutaan pengguna di seluruh dunia sejak 2014.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Stuxnet Worm</strong> — Malware pertama yang menyerang infrastruktur fisik, merusak sentrifugal nuklir Iran tanpa koneksi internet.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Pegasus Spyware</strong> — Mampu mengakses kamera, mikrofon, dan seluruh isi HP hanya dengan satu SMS tanpa perlu diklik korban.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: PHISHING -->
+      <div class="threat-slide">
+        <div class="slide-header">
+          <div class="slide-badge purple">🎣</div>
+          <div class="slide-title-wrap">
+            <div class="slide-num">Ancaman 03 / 05</div>
+            <div class="slide-title">Phishing</div>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-desc-panel">
+            <span class="panel-tag desc-tag">📖 Penjelasan</span>
+            <p>Penipuan online yang bertujuan <strong style="color:#fff">mencuri informasi pribadi</strong> seperti password, PIN, atau nomor rekening dengan menyamar sebagai pihak terpercaya melalui email, SMS (smishing), telepon (vishing), atau situs web palsu yang terlihat sangat mirip aslinya.</p>
+          </div>
+          <div class="slide-example-panel">
+            <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Kasus BRI Life (2021)</strong> — Data 2 juta nasabah bocor setelah karyawan mengklik email phishing yang terlihat seperti email internal.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>SMS "Paket Tertahan"</strong> — Penipuan massif di Indonesia meminta korban input data di situs palsu JNE/J&T yang sangat mirip aslinya.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Spear Phishing Google/Facebook (2013-2015)</strong> — Peretas Lituania berhasil mencuri $100 juta via email invoice palsu yang sangat meyakinkan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: SOCIAL ENGINEERING -->
+      <div class="threat-slide">
+        <div class="slide-header">
+          <div class="slide-badge teal">🎭</div>
+          <div class="slide-title-wrap">
+            <div class="slide-num">Ancaman 04 / 05</div>
+            <div class="slide-title">Social Engineering</div>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-desc-panel">
+            <span class="panel-tag desc-tag">📖 Penjelasan</span>
+            <p>Teknik manipulasi psikologis yang mengeksploitasi <strong style="color:#fff">kepercayaan dan emosi manusia</strong> daripada celah teknis. Pelaku berpura-pura sebagai orang yang dikenal, otoritas, atau pihak berwenang untuk mendapatkan akses atau informasi sensitif dari korban.</p>
+          </div>
+          <div class="slide-example-panel">
+            <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Penipuan "Mama Minta Pulsa"</strong> — Pelaku pura-pura jadi anggota keluarga darurat untuk meminta transfer uang atau pulsa via WhatsApp.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Twitter Hack (2020)</strong> — Hacker manipulasi karyawan Twitter via telepon untuk mereset akun dan mencuri akun Biden, Obama, Musk demi Bitcoin.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Penipuan CS Bank Palsu</strong> — Menelepon korban mengaku petugas bank, meminta OTP dengan alasan "verifikasi keamanan" darurat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: DDOS -->
+      <div class="threat-slide">
+        <div class="slide-header">
+          <div class="slide-badge blue">🌊</div>
+          <div class="slide-title-wrap">
+            <div class="slide-num">Ancaman 05 / 05</div>
+            <div class="slide-title">Serangan DDoS</div>
+          </div>
+        </div>
+        <div class="slide-body">
+          <div class="slide-desc-panel">
+            <span class="panel-tag desc-tag">📖 Penjelasan</span>
+            <p><strong style="color:#fff">Distributed Denial of Service</strong> — menyerang dengan membanjiri server atau jaringan dengan jutaan permintaan palsu secara bersamaan hingga sistem tidak mampu melayani pengguna nyata dan akhirnya crash atau tidak dapat diakses.</p>
+          </div>
+          <div class="slide-example-panel">
+            <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>GitHub DDoS (2018)</strong> — Serangan terbesar saat itu: 1,35 Tbps membanjiri GitHub selama 10 menit, sempat membuat layanan tidak bisa diakses.</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Dyn DNS Attack (2016)</strong> — Melumpuhkan Twitter, Netflix, Spotify, dan Reddit sekaligus selama berjam-jam menggunakan botnet perangkat IoT (kamera CCTV).</p>
+            </div>
+            <div class="example-item">
+              <div class="example-dot"></div>
+              <p><strong>Situs Pemerintah Indonesia (2023)</strong> — Beberapa situs kementerian lumpuh akibat serangan DDoS dari kelompok hacktivist internasional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end slides-track -->
+
+    <!-- Autoplay progress -->
+    <div class="slide-progress-wrap">
+      <div class="slide-progress-bar" id="slideProgressBar"></div>
     </div>
 
-    <div class="threat-card">
-      <div class="threat-badge orange">🦠</div>
-      <div class="threat-content">
-        <h3>Malware</h3>
-        <p>Perangkat lunak berbahaya yang dirancang untuk merusak, mencuri data, atau mengendalikan perangkat tanpa izin pengguna. Contohnya virus, trojan, dan spyware yang dapat masuk melalui unduhan atau situs berbahaya yang tidak disadari.</p>
-      </div>
-    </div>
-
-    <div class="threat-card">
-      <div class="threat-badge purple">🎣</div>
-      <div class="threat-content">
-        <h3>Phishing</h3>
-        <p>Penipuan online yang bertujuan mencuri informasi pribadi seperti password, PIN, atau nomor rekening dengan menyamar sebagai pihak terpercaya melalui email, pesan, atau situs web palsu yang terlihat resmi.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="reveal" style="margin-top:3rem">
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:0.5rem;">Ciri-ciri <span style="color:var(--blue)">Link Phishing</span></h3>
-    <p style="color:var(--muted);font-size:0.9rem;margin-bottom:0">Kenali tanda-tanda berikut agar tidak menjadi korban:</p>
-
-    <div class="phishing-grid">
-      <div class="phishing-item">
-        <div class="phishing-num">1</div>
-        <div>
-          <h4>Mengatasnamakan Institusi Terkenal</h4>
-          <p>Berpura-pura sebagai bank, e-commerce, atau perusahaan teknologi dengan subjek mendesak seperti "Akun Anda Diblokir!"</p>
-        </div>
-      </div>
-      <div class="phishing-item">
-        <div class="phishing-num">2</div>
-        <div>
-          <h4>URL Tidak Resmi</h4>
-          <p>Menggunakan URL mirip tapi berbeda, contoh: bankanda.com dimanipulasi menjadi bank-andaa.com atau bankandda.com.</p>
-        </div>
-      </div>
-      <div class="phishing-item">
-        <div class="phishing-num">3</div>
-        <div>
-          <h4>Konten Tidak Sesuai</h4>
-          <p>Kualitas konten lebih buruk, tata letak tidak rapi, dan isi tulisan terkesan asal dibuat.</p>
-        </div>
-      </div>
-      <div class="phishing-item">
-        <div class="phishing-num">4</div>
-        <div>
-          <h4>Meminta Data Sensitif</h4>
-          <p>Hanya berisi halaman login fiktif yang meminta kredensial akun, password, atau informasi kartu kredit.</p>
-        </div>
-      </div>
-      <div class="phishing-item">
-        <div class="phishing-num">5</div>
-        <div>
-          <h4>Terdeteksi Tidak Aman</h4>
-          <p>Browser menampilkan peringatan "connection is not secure" karena tidak memiliki sertifikat keamanan SSL.</p>
-        </div>
-      </div>
+    <!-- Controls -->
+    <div class="slideshow-controls">
+      <button class="slide-arrow" id="slidePrev" onclick="slideMove(-1)" title="Sebelumnya">&#8592;</button>
+      <div class="slide-dots" id="slideDots"></div>
+      <span class="slide-counter" id="slideCounter">1 / 5</span>
+      <button class="slide-arrow" id="slideNext" onclick="slideMove(1)" title="Berikutnya">&#8594;</button>
     </div>
   </div>
 
@@ -2539,6 +2902,110 @@ function nextQuiz() {
 }
 
 renderQuiz();
+</script>
+<script>
+// ── THREAT SLIDESHOW ──
+(function() {
+  const TOTAL = 5;
+  const AUTOPLAY_MS = 5500;
+  let current = 0;
+  let autoTimer = null;
+  let progressTimer = null;
+  let progressStart = null;
+  let paused = false;
+
+  const track   = document.getElementById('slideTrack');
+  const dotsWrap = document.getElementById('slideDots');
+  const counter  = document.getElementById('slideCounter');
+  const prevBtn  = document.getElementById('slidePrev');
+  const nextBtn  = document.getElementById('slideNext');
+  const progressBar = document.getElementById('slideProgressBar');
+
+  // Build dots
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('button');
+    d.className = 'slide-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  }
+
+  function updateUI() {
+    track.style.transform = `translateX(-${current * 100}%)`;
+    counter.textContent = `${current + 1} / ${TOTAL}`;
+    const dots = dotsWrap.querySelectorAll('.slide-dot');
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+  }
+
+  function goTo(idx) {
+    current = (idx + TOTAL) % TOTAL;
+    updateUI();
+    resetProgress();
+  }
+
+  window.slideMove = function(dir) {
+    goTo(current + dir);
+  };
+
+  // Progress bar animation
+  function startProgress() {
+    if (progressTimer) cancelAnimationFrame(progressTimer);
+    progressStart = performance.now();
+    function tick(now) {
+      if (paused) { progressTimer = requestAnimationFrame(tick); return; }
+      const elapsed = now - progressStart;
+      const pct = Math.min((elapsed / AUTOPLAY_MS) * 100, 100);
+      progressBar.style.width = pct + '%';
+      if (pct >= 100) {
+        goTo(current + 1);
+        return;
+      }
+      progressTimer = requestAnimationFrame(tick);
+    }
+    progressTimer = requestAnimationFrame(tick);
+  }
+
+  function resetProgress() {
+    if (progressTimer) cancelAnimationFrame(progressTimer);
+    progressBar.style.width = '0%';
+    startProgress();
+  }
+
+  // Pause on hover
+  const slideshow = document.getElementById('threatSlideshow');
+  if (slideshow) {
+    slideshow.addEventListener('mouseenter', () => { paused = true; });
+    slideshow.addEventListener('mouseleave', () => {
+      paused = false;
+      progressStart = performance.now() - (parseFloat(progressBar.style.width) / 100 * AUTOPLAY_MS);
+    });
+  }
+
+  // Keyboard support
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('threatSlideshow')) return;
+    const rect = document.getElementById('threatSlideshow').getBoundingClientRect();
+    const visible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!visible) return;
+    if (e.key === 'ArrowLeft')  slideMove(-1);
+    if (e.key === 'ArrowRight') slideMove(1);
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  if (slideshow) {
+    slideshow.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    slideshow.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) slideMove(diff > 0 ? 1 : -1);
+    }, { passive: true });
+  }
+
+  updateUI();
+  startProgress();
+})();
 </script>
 <script>
 const loginBtn = document.getElementById("openLogin");
