@@ -2029,7 +2029,7 @@ footer strong {
   <span class="hero-particle p4"></span>
 
   <div class="hero-content">
-    <div class="hero-badge"><span></span> Hanover and Tyke · Personal Security</div>
+    <div class="hero-badge"><span></span>By Mahasiswa UNESA PTI C</div>
     <h1>Kesadaran<br><span class="accent">Keamanan Siber</span></h1>
     <p class="hero-sub" id="heroTyping"></p>
 
@@ -2174,7 +2174,7 @@ footer strong {
         <div class="slide-body">
           <div class="slide-desc-panel">
             <span class="panel-tag desc-tag">📖 Penjelasan</span>
-            <p>Jenis serangan yang <strong style="color:#fff">mengunci atau mengenkripsi data</strong> pada perangkat korban sehingga tidak dapat diakses. Pelaku kemudian meminta sejumlah uang tebusan (biasanya dalam bentuk kripto) agar data dapat dikembalikan. Sangat berbahaya karena dapat menyebabkan kehilangan data permanen jika tebusan tidak dibayar.</p>
+            <p><strong style="color:#fff">Ransomware</strong> — Jenis serangan yang mengunci atau mengenkripsi data</strong> pada perangkat korban sehingga tidak dapat diakses. Pelaku kemudian meminta sejumlah uang tebusan (biasanya dalam bentuk kripto) agar data dapat dikembalikan. Sangat berbahaya karena dapat menyebabkan kehilangan data permanen jika tebusan tidak dibayar.</p>
           </div>
           <div class="slide-example-panel">
             <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
@@ -2206,7 +2206,7 @@ footer strong {
         <div class="slide-body">
           <div class="slide-desc-panel">
             <span class="panel-tag desc-tag">📖 Penjelasan</span>
-            <p>Perangkat lunak berbahaya (<strong style="color:#fff">malicious software</strong>) yang dirancang untuk merusak, mencuri data, atau mengendalikan perangkat tanpa izin pengguna. Meliputi virus, trojan horse, spyware, adware, dan worm yang dapat masuk melalui unduhan atau situs berbahaya.</p>
+            <p><strong style="color:#fff">Malware</strong> — Perangkat lunak berbahaya (malicious software) yang dirancang untuk merusak, mencuri data, atau mengendalikan perangkat tanpa izin pengguna. Meliputi virus, trojan horse, spyware, adware, dan worm yang dapat masuk melalui unduhan atau situs berbahaya.</p>
           </div>
           <div class="slide-example-panel">
             <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
@@ -2238,7 +2238,7 @@ footer strong {
         <div class="slide-body">
           <div class="slide-desc-panel">
             <span class="panel-tag desc-tag">📖 Penjelasan</span>
-            <p>Penipuan online yang bertujuan <strong style="color:#fff">mencuri informasi pribadi</strong> seperti password, PIN, atau nomor rekening dengan menyamar sebagai pihak terpercaya melalui email, SMS (smishing), telepon (vishing), atau situs web palsu yang terlihat sangat mirip aslinya.</p>
+            <p><strong style="color:#fff">Phishing</strong> — Penipuan online yang bertujuan mencuri informasi pribadi</strong> seperti password, PIN, atau nomor rekening dengan menyamar sebagai pihak terpercaya melalui email, SMS (smishing), telepon (vishing), atau situs web palsu yang terlihat sangat mirip aslinya.</p>
           </div>
           <div class="slide-example-panel">
             <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
@@ -2258,19 +2258,19 @@ footer strong {
         </div>
       </div>
 
-      <!-- SLIDE 4: SOCIAL ENGINEERING -->
+      <!-- SLIDE 4: MITM -->
       <div class="threat-slide">
         <div class="slide-header">
           <div class="slide-badge teal">🎭</div>
           <div class="slide-title-wrap">
             <div class="slide-num">Ancaman 04 / 05</div>
-            <div class="slide-title">Social Engineering</div>
+            <div class="slide-title">Man-in-the-Middle (MITM)</div>
           </div>
         </div>
         <div class="slide-body">
           <div class="slide-desc-panel">
             <span class="panel-tag desc-tag">📖 Penjelasan</span>
-            <p>Teknik manipulasi psikologis yang mengeksploitasi <strong style="color:#fff">kepercayaan dan emosi manusia</strong> daripada celah teknis. Pelaku berpura-pura sebagai orang yang dikenal, otoritas, atau pihak berwenang untuk mendapatkan akses atau informasi sensitif dari korban.</p>
+            <p><strong style="color:#fff">Man-in-the-Middle (MITM)</strong> — Teknik serangan di mana pelaku menyisipkan diri di antara dua pihak yang berkomunikasi, sehingga dapat mencuri, mengubah, atau memanipulasi data yang ditransmisikan tanpa diketahui oleh pihak-pihak tersebut.</p>
           </div>
           <div class="slide-example-panel">
             <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
@@ -2290,19 +2290,19 @@ footer strong {
         </div>
       </div>
 
-      <!-- SLIDE 5: DDOS -->
+      <!-- SLIDE 5: DOS & DDOS -->
       <div class="threat-slide">
         <div class="slide-header">
           <div class="slide-badge blue">🌊</div>
           <div class="slide-title-wrap">
             <div class="slide-num">Ancaman 05 / 05</div>
-            <div class="slide-title">Serangan DDoS</div>
+            <div class="slide-title">Serangan DoS & DDoS</div>
           </div>
         </div>
         <div class="slide-body">
           <div class="slide-desc-panel">
             <span class="panel-tag desc-tag">📖 Penjelasan</span>
-            <p><strong style="color:#fff">Distributed Denial of Service</strong> — menyerang dengan membanjiri server atau jaringan dengan jutaan permintaan palsu secara bersamaan hingga sistem tidak mampu melayani pengguna nyata dan akhirnya crash atau tidak dapat diakses.</p>
+            <p><strong style="color:#fff">Denial of Service (DoS) dan<br>Distributed Denial of Service (DDoS)</strong> — Menyerang dengan membanjiri server atau jaringan dengan jutaan permintaan palsu secara bersamaan hingga sistem tidak mampu melayani pengguna nyata dan akhirnya crash atau tidak dapat diakses.</p>
           </div>
           <div class="slide-example-panel">
             <span class="panel-tag example-tag">⚡ Contoh Nyata</span>
@@ -2590,7 +2590,7 @@ footer strong {
 </div>
 
 <footer>
-  <p>Dibuat oleh <strong>Hanover and Tyke</strong> · Kesadaran Keamanan Siber (Personal Security) · <?php echo date('Y'); ?></p>
+  <p>Dibuat oleh <strong>Mahasiswa Unesa PTI C</strong> · Kesadaran Keamanan Siber (Personal Security) · <?php echo date('Y'); ?></p>
 </footer>
 
 <!-- TOAST CONTAINER -->
