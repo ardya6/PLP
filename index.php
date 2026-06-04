@@ -982,6 +982,470 @@ section .lead {
   width: min(1040px, calc(100% - 48px));
 }
 
+/* ── STATS SECTION ── */
+.stats-section {
+  padding: 4rem 2rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-top: 0;
+}
+
+.stat-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 24px;
+  padding: 1.6rem 1.4rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4f7cff, #7dd3fc, #ffc857);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.stat-card:hover::before { transform: scaleX(1); }
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(125,211,252,.35);
+  box-shadow: 0 24px 60px rgba(0,0,0,.25);
+}
+
+.stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: transparent;
+  background: linear-gradient(135deg, #7dd3fc, #4f7cff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.84rem;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.stat-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* ── PASSWORD CHECKER ── */
+.password-checker {
+  margin-top: 3rem;
+  background: linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  padding: 2rem 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.password-checker::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4f7cff, #7dd3fc, #ffc857);
+}
+
+.password-checker h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.password-checker p.desc {
+  color: var(--muted);
+  font-size: 0.87rem;
+  margin-bottom: 1.4rem;
+  line-height: 1.6;
+}
+
+.pw-input-wrap {
+  position: relative;
+}
+
+.pw-input-wrap input {
+  width: 100%;
+  padding: 0.95rem 3.5rem 0.95rem 1.2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.07);
+  color: white;
+  font-size: 1rem;
+  font-family: 'Manrope', monospace;
+  letter-spacing: 0.05em;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.pw-input-wrap input:focus {
+  border-color: rgba(125,211,252,0.5);
+  background: rgba(125,211,252,0.06);
+}
+
+.pw-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+.pw-toggle:hover { color: #7dd3fc; }
+
+.pw-strength-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  margin-top: 0.9rem;
+  overflow: hidden;
+}
+
+.pw-strength-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease, background 0.4s ease;
+  width: 0%;
+}
+
+.pw-strength-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.6rem;
+}
+
+.pw-strength-label {
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition: color 0.3s;
+}
+
+.pw-strength-score {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.pw-tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.pw-tip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 0.4rem 0.6rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  transition: all 0.3s ease;
+}
+
+.pw-tip.ok {
+  color: #6ee7b7;
+  background: rgba(110,231,183,0.1);
+  border: 1px solid rgba(110,231,183,0.2);
+}
+
+.pw-tip .tip-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.pw-tip.ok .tip-icon {
+  background: rgba(110,231,183,0.25);
+  color: #6ee7b7;
+}
+
+/* ── PHISHING QUIZ ── */
+.phishing-quiz {
+  margin-top: 2.5rem;
+  background: linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  padding: 2rem 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.phishing-quiz::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #ffc857, #7dd3fc);
+}
+
+.phishing-quiz h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.4rem;
+}
+
+.phishing-quiz p.desc {
+  color: var(--muted);
+  font-size: 0.87rem;
+  margin-bottom: 1.4rem;
+}
+
+.quiz-url-box {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  word-break: break-all;
+  transition: all 0.3s ease;
+}
+
+.quiz-url-box .lock-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.quiz-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.quiz-btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.85rem 1.5rem;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Manrope', sans-serif;
+}
+
+.quiz-btn.safe {
+  background: rgba(110,231,183,0.12);
+  color: #6ee7b7;
+  border-color: rgba(110,231,183,0.25);
+}
+
+.quiz-btn.safe:hover {
+  background: rgba(110,231,183,0.22);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(110,231,183,0.15);
+}
+
+.quiz-btn.danger {
+  background: rgba(255,107,107,0.12);
+  color: #fca5a5;
+  border-color: rgba(255,107,107,0.25);
+}
+
+.quiz-btn.danger:hover {
+  background: rgba(255,107,107,0.22);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255,107,107,0.15);
+}
+
+.quiz-btn.next {
+  background: linear-gradient(135deg, #4f7cff, #7dd3fc);
+  color: #06101f;
+  border-color: transparent;
+}
+
+.quiz-btn.next:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(79,124,255,.35);
+}
+
+.quiz-feedback {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.6;
+  display: none;
+  animation: feedbackPop 0.3s ease;
+}
+
+@keyframes feedbackPop {
+  from { opacity: 0; transform: scale(0.95) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.quiz-feedback.correct {
+  display: block;
+  background: rgba(110,231,183,0.12);
+  border: 1px solid rgba(110,231,183,0.28);
+  color: #6ee7b7;
+}
+
+.quiz-feedback.wrong {
+  display: block;
+  background: rgba(255,107,107,0.12);
+  border: 1px solid rgba(255,107,107,0.28);
+  color: #fca5a5;
+}
+
+.quiz-score {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.8rem;
+  text-align: right;
+}
+
+.quiz-progress {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-dot {
+  width: 28px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.quiz-dot.done-correct { background: #6ee7b7; }
+.quiz-dot.done-wrong   { background: #fca5a5; }
+.quiz-dot.current      { background: rgba(125,211,252,0.6); animation: dotPulse 1s infinite; }
+
+@keyframes dotPulse {
+  0%,100% { opacity: 1; } 50% { opacity: 0.5; }
+}
+
+/* ── TOAST ── */
+.toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  pointer-events: none;
+}
+
+.toast {
+  background: rgba(10, 20, 40, 0.96);
+  border: 1px solid rgba(125,211,252,0.24);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 240px;
+  max-width: 320px;
+  color: #eaf2ff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  pointer-events: auto;
+  animation: toastIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: bottom right;
+}
+
+.toast.hiding {
+  animation: toastOut 0.35s ease forwards;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.85); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toastOut {
+  to { opacity: 0; transform: translateY(10px) scale(0.9); }
+}
+
+.toast-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.toast.info .toast-icon    { background: rgba(79,124,255,0.22); color: #7dd3fc; }
+.toast.success .toast-icon { background: rgba(110,231,183,0.22); color: #6ee7b7; }
+.toast.warning .toast-icon { background: rgba(255,200,87,0.22); color: #ffc857; }
+
+/* ── TYPING CURSOR ── */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: #7dd3fc;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; } 50% { opacity: 0; }
+}
+
 /* ── SCROLL ANIMATIONS ── */
 .reveal {
   opacity: 0;
@@ -1315,7 +1779,7 @@ footer strong {
   <div class="hero-content">
     <div class="hero-badge"><span></span> Hanover and Tyke · Personal Security</div>
     <h1>Kesadaran<br><span class="accent">Keamanan Siber</span></h1>
-    <p class="hero-sub">Lindungi diri, perangkat, akun, dan data pribadi Anda<br>dari ancaman di dunia digital yang terus berkembang.</p>
+    <p class="hero-sub" id="heroTyping"></p>
 
     <div class="hero-cta">
       <a href="#definition" class="btn-primary">Mulai Belajar →</a>
@@ -1342,6 +1806,34 @@ footer strong {
     </div>
   </div>
 </section>
+
+<hr class="section-divider">
+
+<!-- ══ STATS ══ -->
+<div class="stats-section">
+  <div class="stats-grid reveal">
+    <div class="stat-card">
+      <span class="stat-icon">🌐</span>
+      <div class="stat-num" data-target="2200" data-suffix="+">0</div>
+      <div class="stat-label">Serangan siber terjadi<br>setiap detik di dunia</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon">💸</span>
+      <div class="stat-num" data-target="8" data-prefix="$" data-suffix="T">0</div>
+      <div class="stat-label">Kerugian global akibat<br>kejahatan siber (2023)</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon">📧</span>
+      <div class="stat-num" data-target="3.4" data-suffix="B">0</div>
+      <div class="stat-label">Email phishing dikirim<br>setiap hari</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon">🔐</span>
+      <div class="stat-num" data-target="90" data-suffix="%">0</div>
+      <div class="stat-label">Serangan bisa dicegah<br>dengan kebiasaan aman</div>
+    </div>
+  </div>
+</div>
 
 <hr class="section-divider">
 
@@ -1482,6 +1974,28 @@ footer strong {
       </div>
     </div>
   </div>
+
+  <!-- PHISHING QUIZ -->
+  <div class="phishing-quiz reveal" id="phishingQuiz">
+    <h3>🎯 Tes Kemampuanmu!</h3>
+    <p class="desc">Apakah URL berikut aman atau phishing? Pilih jawabanmu dan lihat penjelasannya.</p>
+
+    <div class="quiz-progress" id="quizProgress"></div>
+
+    <div class="quiz-url-box" id="quizUrlBox">
+      <span class="lock-icon" id="quizLock">🔒</span>
+      <span id="quizUrl">Memuat soal...</span>
+    </div>
+
+    <div class="quiz-buttons">
+      <button class="quiz-btn safe" id="quizSafeBtn" onclick="answerQuiz('safe')">✅ Aman</button>
+      <button class="quiz-btn danger" id="quizDangerBtn" onclick="answerQuiz('phishing')">⚠️ Phishing</button>
+      <button class="quiz-btn next" id="quizNextBtn" onclick="nextQuiz()" style="display:none;">Soal Berikut →</button>
+    </div>
+
+    <div class="quiz-feedback" id="quizFeedback"></div>
+    <div class="quiz-score" id="quizScore"></div>
+  </div>
 </section>
 
 <hr class="section-divider">
@@ -1541,6 +2055,32 @@ footer strong {
         <h3>Cadangkan Data Secara Berkala</h3>
         <p>Kehilangan data akibat ransomware atau kerusakan perangkat dapat diminimalisir dengan backup rutin ke perangkat eksternal atau layanan cloud storage. Pastikan backup selalu diperbarui secara terjadwal.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- PASSWORD CHECKER -->
+  <div class="password-checker reveal">
+    <h3>🔐 Cek Kekuatan Password</h3>
+    <p class="desc">Ketik password untuk melihat seberapa kuat — tidak ada yang disimpan atau dikirim ke server.</p>
+
+    <div class="pw-input-wrap">
+      <input type="password" id="pwInput" placeholder="Ketik password di sini..." autocomplete="off" oninput="checkPassword()">
+      <button class="pw-toggle" id="pwToggle" onclick="togglePw()" title="Tampilkan/Sembunyikan"><i class="fa-solid fa-eye" id="pwEyeIcon"></i></button>
+    </div>
+
+    <div class="pw-strength-bar"><div class="pw-strength-fill" id="pwFill"></div></div>
+    <div class="pw-strength-info">
+      <span class="pw-strength-label" id="pwLabel">Belum ada input</span>
+      <span class="pw-strength-score" id="pwScore"></span>
+    </div>
+
+    <div class="pw-tips">
+      <div class="pw-tip" id="tip-length"><span class="tip-icon">✗</span> Min. 12 karakter</div>
+      <div class="pw-tip" id="tip-upper"><span class="tip-icon">✗</span> Huruf besar (A-Z)</div>
+      <div class="pw-tip" id="tip-lower"><span class="tip-icon">✗</span> Huruf kecil (a-z)</div>
+      <div class="pw-tip" id="tip-number"><span class="tip-icon">✗</span> Angka (0-9)</div>
+      <div class="pw-tip" id="tip-symbol"><span class="tip-icon">✗</span> Simbol (!@#$...)</div>
+      <div class="pw-tip" id="tip-unique"><span class="tip-icon">✗</span> Tidak umum</div>
     </div>
   </div>
 </section>
@@ -1690,6 +2230,9 @@ footer strong {
   <p>Dibuat oleh <strong>Hanover and Tyke</strong> · Kesadaran Keamanan Siber (Personal Security) · <?php echo date('Y'); ?></p>
 </footer>
 
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
 <script>
 // Progress bar
 window.addEventListener('scroll', () => {
@@ -1768,44 +2311,235 @@ document.querySelectorAll('.tilt-card').forEach(card => {
 });
 </script>
 <script>
-const loginBtn = document.getElementById("openLogin");
-const loginModal = document.getElementById("loginModal");
-const closeModal = document.querySelector(".close-modal");
+// ── TYPING ANIMATION ──
+const typingEl = document.getElementById('heroTyping');
+const typingTexts = [
+  'Lindungi diri, perangkat, akun, dan data pribadi Anda dari ancaman di dunia digital.',
+  'Satu langkah kecil hari ini dapat mencegah kerugian besar di masa depan.',
+  'Keamanan digital dimulai dari kebiasaan dan kesadaran diri sendiri.'
+];
+let tIdx = 0, cIdx = 0, isDeleting = false;
+function typeLoop() {
+  const text = typingTexts[tIdx];
+  if (!isDeleting) {
+    cIdx++;
+    typingEl.innerHTML = text.slice(0, cIdx) + '<span class="typing-cursor"></span>';
+    if (cIdx === text.length) { isDeleting = true; setTimeout(typeLoop, 2400); return; }
+  } else {
+    cIdx--;
+    typingEl.innerHTML = text.slice(0, cIdx) + '<span class="typing-cursor"></span>';
+    if (cIdx === 0) { isDeleting = false; tIdx = (tIdx + 1) % typingTexts.length; setTimeout(typeLoop, 400); return; }
+  }
+  setTimeout(typeLoop, isDeleting ? 22 : 38);
+}
+setTimeout(typeLoop, 800);
 
-if(loginBtn){
-    loginBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        loginModal.classList.add("active");
-    });
+// ── TOAST SYSTEM ──
+function showToast(msg, type = 'info', icon = 'ℹ️') {
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.innerHTML = `<div class="toast-icon">${icon}</div><div>${msg}</div>`;
+  c.appendChild(t);
+  setTimeout(() => { t.classList.add('hiding'); setTimeout(() => t.remove(), 360); }, 3800);
 }
 
-if(closeModal){
-    closeModal.addEventListener("click", function(){
-        loginModal.classList.remove("active");
-    });
+// ── STATS COUNTER ──
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const isDecimal = target % 1 !== 0;
+  const duration = 1800;
+  const step = 16;
+  const steps = duration / step;
+  const increment = target / steps;
+  let current = 0;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) { current = target; clearInterval(timer); }
+    el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString()) + suffix;
+  }, step);
 }
 
-window.addEventListener("click", function(e){
-    if(e.target === loginModal){
-        loginModal.classList.remove("active");
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.counted) {
+      entry.target.dataset.counted = '1';
+      animateCounter(entry.target);
     }
-});
-</script>
-(e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const rotateX = ((y / rect.height) - 0.5) * -8;
-    const rotateY = ((x / rect.width) - 0.5) * 8;
-    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
   });
+}, { threshold: 0.5 });
 
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
+document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
+
+// ── SECTION TOAST NOTIFICATIONS ──
+const sectionToasts = {
+  'threats':    ['⚠️ Kenali ancaman sebelum menjadi korban!', 'warning', '⚠️'],
+  'prevention': ['🛡 Terapkan langkah pencegahan mulai hari ini!', 'info', '🛡'],
+  'habits':     ['💡 Cek apakah kamu punya kebiasaan berbahaya ini?', 'warning', '💡'],
+  'conclusion': ['✅ Kamu hampir selesai membaca! Bagus sekali!', 'success', '✅']
+};
+const toastedSections = new Set();
+const toastObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !toastedSections.has(entry.target.id)) {
+      toastedSections.add(entry.target.id);
+      const t = sectionToasts[entry.target.id];
+      if (t) setTimeout(() => showToast(...t), 400);
+    }
   });
+}, { threshold: 0.3 });
+
+['threats','prevention','habits','conclusion'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) toastObserver.observe(el);
 });
+
+// ── PASSWORD STRENGTH CHECKER ──
+const commonPw = ['password','123456','qwerty','abc123','letmein','monkey','dragon','111111','master','welcome'];
+function checkPassword() {
+  const val = document.getElementById('pwInput').value;
+  const fill = document.getElementById('pwFill');
+  const label = document.getElementById('pwLabel');
+  const scoreEl = document.getElementById('pwScore');
+  if (!val) {
+    fill.style.width = '0%';
+    label.textContent = 'Belum ada input'; label.style.color = 'var(--muted)';
+    scoreEl.textContent = '';
+    ['length','upper','lower','number','symbol','unique'].forEach(t => setTip(t, false));
+    return;
+  }
+  const checks = {
+    length: val.length >= 12,
+    upper:  /[A-Z]/.test(val),
+    lower:  /[a-z]/.test(val),
+    number: /[0-9]/.test(val),
+    symbol: /[^A-Za-z0-9]/.test(val),
+    unique: !commonPw.some(p => val.toLowerCase().includes(p))
+  };
+  Object.entries(checks).forEach(([k,v]) => setTip(k, v));
+  const score = Object.values(checks).filter(Boolean).length;
+  const pct = (score / 6) * 100;
+  const configs = [
+    { pct: 0,  color: 'transparent', text: '', cl: '' },
+    { pct: 17, color: '#ff6b6b', text: 'Sangat Lemah', cl: '#ff6b6b' },
+    { pct: 34, color: '#ffa94d', text: 'Lemah', cl: '#ffa94d' },
+    { pct: 50, color: '#ffc857', text: 'Cukup', cl: '#ffc857' },
+    { pct: 67, color: '#74c0fc', text: 'Baik', cl: '#74c0fc' },
+    { pct: 84, color: '#69db7c', text: 'Kuat', cl: '#69db7c' },
+    { pct: 100, color: 'linear-gradient(90deg,#69db7c,#38f8ff)', text: '🔒 Sangat Kuat!', cl: '#6ee7b7' }
+  ];
+  const cfg = configs[score];
+  fill.style.width = pct + '%';
+  fill.style.background = cfg.color;
+  label.textContent = cfg.text;
+  label.style.color = cfg.cl;
+  scoreEl.textContent = `${score}/6 kriteria terpenuhi`;
+}
+function setTip(id, ok) {
+  const el = document.getElementById('tip-' + id);
+  if (!el) return;
+  const icon = el.querySelector('.tip-icon');
+  if (ok) { el.classList.add('ok'); icon.textContent = '✓'; }
+  else { el.classList.remove('ok'); icon.textContent = '✗'; }
+}
+function togglePw() {
+  const inp = document.getElementById('pwInput');
+  const icon = document.getElementById('pwEyeIcon');
+  if (inp.type === 'password') { inp.type = 'text'; icon.className = 'fa-solid fa-eye-slash'; }
+  else { inp.type = 'password'; icon.className = 'fa-solid fa-eye'; }
+}
+
+// ── PHISHING QUIZ ──
+const quizData = [
+  { url: 'https://www.bank-bca.com.login-verifikasi.xyz/akun', safe: false,
+    explain: 'Domain utama adalah login-verifikasi.xyz, bukan bca.com. Ini teknik subdomain palsu yang sangat umum digunakan phisher.' },
+  { url: 'https://www.tokopedia.com/product/detail?id=12345', safe: true,
+    explain: 'Domain resmi tokopedia.com dengan HTTPS. URL ini aman dan valid.' },
+  { url: 'http://paypa1.com/secure/login?verify=true', safe: false,
+    explain: 'Perhatikan "paypa1" (angka 1 bukan huruf l). Tidak ada HTTPS. Ini phishing klasik dengan typosquatting!' },
+  { url: 'https://accounts.google.com/signin/v2/identifier', safe: true,
+    explain: 'Domain resmi google.com dengan HTTPS dan subdomain accounts yang sah. URL ini aman.' },
+  { url: 'http://mandiri-secure.id-login.net/konfirmasi-akun', safe: false,
+    explain: 'Domain utama adalah id-login.net, bukan mandiri.co.id. Tidak ada HTTPS. Sangat mencurigakan!' },
+  { url: 'https://shopee.co.id/flash-sale?categoryId=100008', safe: true,
+    explain: 'Domain resmi shopee.co.id dengan HTTPS. Ini URL yang valid dan aman.' },
+  { url: 'https://instagram-support-help.com/verify-account-now', safe: false,
+    explain: 'Instagram menggunakan domain instagram.com, bukan instagram-support-help.com. Ini phishing!' }
+];
+let qIdx = 0, qScore = 0, qAnswered = false;
+
+function renderQuiz() {
+  const q = quizData[qIdx];
+  document.getElementById('quizUrl').textContent = q.url;
+  document.getElementById('quizLock').textContent = q.url.startsWith('https') ? '🔒' : '🔓';
+  document.getElementById('quizUrlBox').style.borderColor = 'rgba(255,255,255,0.12)';
+  document.getElementById('quizFeedback').className = 'quiz-feedback';
+  document.getElementById('quizFeedback').textContent = '';
+  document.getElementById('quizSafeBtn').style.display = '';
+  document.getElementById('quizDangerBtn').style.display = '';
+  document.getElementById('quizNextBtn').style.display = 'none';
+  document.getElementById('quizScore').textContent = `Skor: ${qScore}/${qIdx} benar`;
+  qAnswered = false;
+  renderProgress();
+}
+
+function renderProgress() {
+  const p = document.getElementById('quizProgress');
+  p.innerHTML = '';
+  quizData.forEach((q, i) => {
+    const d = document.createElement('div');
+    d.className = 'quiz-dot';
+    if (i < qIdx) d.classList.add(q._result ? 'done-correct' : 'done-wrong');
+    else if (i === qIdx) d.classList.add('current');
+    p.appendChild(d);
+  });
+}
+
+function answerQuiz(answer) {
+  if (qAnswered) return;
+  qAnswered = true;
+  const q = quizData[qIdx];
+  const correct = (answer === 'safe') === q.safe;
+  q._result = correct;
+  if (correct) qScore++;
+  const fb = document.getElementById('quizFeedback');
+  fb.className = 'quiz-feedback ' + (correct ? 'correct' : 'wrong');
+  fb.innerHTML = (correct ? '✅ <strong>Benar!</strong> ' : '❌ <strong>Salah!</strong> ') + q.explain;
+  document.getElementById('quizUrlBox').style.borderColor = correct ? 'rgba(110,231,183,0.4)' : 'rgba(255,107,107,0.4)';
+  document.getElementById('quizSafeBtn').style.display = 'none';
+  document.getElementById('quizDangerBtn').style.display = 'none';
+  const nextBtn = document.getElementById('quizNextBtn');
+  nextBtn.style.display = '';
+  if (qIdx === quizData.length - 1) nextBtn.textContent = '🏆 Lihat Hasil';
+  else nextBtn.textContent = 'Soal Berikut →';
+  document.getElementById('quizScore').textContent = `Skor: ${qScore}/${qIdx + 1} benar`;
+  renderProgress();
+}
+
+function nextQuiz() {
+  qIdx++;
+  if (qIdx >= quizData.length) {
+    const pct = Math.round((qScore / quizData.length) * 100);
+    let grade = pct >= 80 ? '🏆 Luar Biasa! Kamu ahli deteksi phishing!' :
+                pct >= 60 ? '👍 Bagus! Terus tingkatkan kewaspadaanmu.' :
+                '📚 Perlu belajar lebih banyak tentang phishing.';
+    document.getElementById('quizUrlBox').innerHTML = `<span style="font-family:Manrope;color:#eaf2ff;font-size:1rem;">Skor akhir: <strong style="color:#7dd3fc">${qScore}/${quizData.length}</strong> (${pct}%) — ${grade}</span>`;
+    document.getElementById('quizFeedback').className = 'quiz-feedback correct';
+    document.getElementById('quizFeedback').textContent = 'Kuis selesai! Refresh halaman untuk mencoba lagi.';
+    document.getElementById('quizSafeBtn').style.display = 'none';
+    document.getElementById('quizDangerBtn').style.display = 'none';
+    document.getElementById('quizNextBtn').style.display = 'none';
+    document.getElementById('quizScore').textContent = '';
+    showToast(grade, pct >= 60 ? 'success' : 'warning', pct >= 80 ? '🏆' : pct >= 60 ? '👍' : '📚');
+    return;
+  }
+  renderQuiz();
+}
+
+renderQuiz();
 </script>
-<<<<<<< HEAD
 <script>
 const loginBtn = document.getElementById("openLogin");
 const loginModal = document.getElementById("loginModal");
@@ -1830,5 +2564,3 @@ window.addEventListener("click", function(e){
     }
 });
 </script>
-=======
->>>>>>> 947b5f5df4e82653e4b0aaffc077bf7565ca9fe0
