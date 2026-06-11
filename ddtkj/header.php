@@ -921,7 +921,7 @@ body.light-mode #mouse-glow { background: radial-gradient(circle, rgba(139,92,24
 
 <!-- NAVBAR -->
 <nav class="main-nav" id="main-nav">
-  <a href="../index.php" class="nav-logo">
+  <a href="ddtkj.php" class="nav-logo">
     <i class="fa-solid fa-network-wired"></i><span>DDTKJ</span>
   </a>
   <div class="nav-links">
