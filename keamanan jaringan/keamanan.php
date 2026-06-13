@@ -1899,7 +1899,7 @@ footer strong {
   <span class="hero-particle p4"></span>
 
   <div class="hero-content">
-    <div class="hero-badge"><span></span>By Mahasiswa UNESA PTI C</div>
+    <div class="hero-badge"><span></span>Platform Pembelajaran Keamanan Jaringan</div>
     <h1>Kesadaran<br><span class="accent">Keamanan Siber</span></h1>
     <p class="hero-sub" id="heroTyping"></p>
 
@@ -2396,7 +2396,7 @@ footer strong {
 </div>
 
 <footer>
-  <p>Dibuat oleh <strong>Mahasiswa Unesa PTI C</strong> · Kesadaran Keamanan Siber (Personal Security) · <?php echo date('Y'); ?></p>
+  <p>Dibuat oleh <strong>Platform Pembelajaran Keamanan Jaringan</strong> · Kesadaran Keamanan Siber (Personal Security) · <?php echo date('Y'); ?></p>
 </footer>
 
 <!-- TOAST CONTAINER -->
