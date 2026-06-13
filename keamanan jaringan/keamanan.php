@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 $pages = ['home', 'definition', 'importance', 'threats', 'prevention', 'habits', 'conclusion'];
 ?>
@@ -1820,7 +1818,45 @@ footer strong {
   }
 }
 
-/* ── LOGIN & QUIZ ── */
+.module-actions{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.module-actions a{
+    text-decoration:none;
+    padding:15px 28px;
+    border-radius:999px;
+    font-weight:600;
+    transition:all .3s ease;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#5b8cff,#7dd3fc);
+    color:#07101f;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(91,140,255,.35);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    color:#dbeafe;
+}
+
+.btn-secondary:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,.15);
+}
+
+/* ── QUIZ ── */
 .quiz-link {
   background: linear-gradient(135deg, #4f7cff, #7dd3fc);
   color: #06101f !important;
@@ -1828,167 +1864,6 @@ footer strong {
   margin-right: 20px;
 }
 
-.logout-link {
-  background: rgba(255, 107, 107, 0.18);
-  color: #ffb4b4 !important;
-  border: 1px solid rgba(255, 107, 107, 0.25);
-}
-
-.login-section {
-  padding: 6rem 2rem;
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.login-box {
-  max-width: 560px;
-  margin: 0 auto;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(125,211,252,.18), transparent 24rem),
-    linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.045));
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 34px;
-  padding: 3rem 2.2rem;
-  box-shadow: 0 30px 90px rgba(0,0,0,.30);
-  backdrop-filter: blur(18px);
-}
-
-.login-box h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  text-align: center;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.login-box h2 span {
-  color: transparent;
-  background: linear-gradient(90deg, #7dd3fc, #4f7cff);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.login-box p {
-  color: var(--muted);
-  text-align: center;
-  line-height: 1.7;
-  margin-bottom: 2rem;
-}
-
-.login-box label {
-  display: block;
-  color: white;
-  font-weight: 800;
-  margin-bottom: 0.6rem;
-}
-
-.login-box input {
-  width: 100%;
-  padding: 1rem 1.1rem;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.08);
-  color: white;
-  outline: none;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-}
-
-.login-box input::placeholder {
-  color: #8fa2c2;
-}
-
-.btn-login {
-  width: 100%;
-  margin-top: 0.8rem;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #4f7cff 0%, #7dd3fc 100%);
-  color: #06101f;
-  font-weight: 900;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 16px 45px rgba(79,124,255,0.34);
-  transition: 0.3s ease;
-}
-
-.btn-login:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 55px rgba(79,124,255,0.44);
-}
-
-.login-note {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  border-radius: 18px;
-  background: rgba(125,211,252,0.08);
-  border: 1px solid rgba(125,211,252,0.14);
-  color: var(--muted);
-  font-size: 0.86rem;
-  line-height: 1.7;
-}
-
-.user-status {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 18px;
-  background: rgba(125,211,252,0.10);
-  border: 1px solid rgba(125,211,252,0.18);
-  color: #dbeafe;
-  font-weight: 800;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(6px);
-    z-index: 9999;
-
-    justify-content: center;
-    align-items: center;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-content {
-    width: 90%;
-    max-width: 600px;
-    position: relative;
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    color: white;
-    z-index: 10000;
-}
-
-.modal .login-section{
-    padding: 0;
-    margin: 0;
-    max-width: none;
-}
-
-.modal .login-box{
-    margin: 0 auto;
-}
-
-.modal-content{
-    width: 100%;
-    max-width: 700px;
-    position: relative;
-}
 
 </style>
 </head>
@@ -2007,13 +1882,8 @@ footer strong {
     <a href="#prevention">Pencegahan</a>
     <a href="#habits">Kebiasaan</a>
     <a href="#conclusion">Kesimpulan</a>
-
-    <?php if (isset($_SESSION["login"])): ?>
-      <a href="arah_quiz.php" class="quiz-link">Quiz</a>
-      <a href="logout.php" class="logout-link">Logout</a>
-    <?php else: ?>
-      <a href="#" class="quiz-link" id="openLogin">Login</a>
-    <?php endif; ?>    
+   
+    <a href="quiz.php?start=1" class="quiz-link">Quiz</a>
   </div>
 </nav>
 
@@ -2515,78 +2385,14 @@ footer strong {
   </div>
 </section>
 
-<hr class="section-divider">
+<div class="module-actions">
+    <a href="quiz.php?start=1" class="btn-primary">
+        📝 Kerjakan Quiz
+    </a>
 
-<!-- LOGIN MODAL -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-
-    <section class="login-section">
-
-      <div class="login-box">
-
-        <?php if (!isset($_SESSION["login"])): ?>
-          <h2>Login <span>Akun Quiz</span></h2>
-
-          <p>
-            Silakan login terlebih dahulu. Setelah login,
-            tombol Quiz akan otomatis masuk sesuai role akun.
-          </p>
-
-          <form action="proses_login.php" method="POST">
-
-            <label for="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Masukkan username"
-              required
-            >
-
-            <label for="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Masukkan password"
-              required
-            >
-
-            <button type="submit" class="btn-login">
-              Login
-            </button>
-
-          </form>
-
-        <?php else: ?>
-
-          <h2>Anda Sudah <span>Login</span></h2>
-
-          <p>Sekarang kamu bisa menekan tombol Quiz di navbar.</p>
-
-          <div class="user-status">
-            Login sebagai: <?= $_SESSION["nama"]; ?>
-            <br>
-            Role: <?= ucfirst($_SESSION["role"]); ?>
-          </div>
-
-          <a
-            href="arah_quiz.php"
-            class="btn-login"
-            style="display:block;text-align:center;text-decoration:none;"
-          >
-            Masuk Quiz →
-          </a>
-
-        <?php endif; ?>
-
-      </div>
-
-    </section>
-
-  </div>
+    <a href="../index.php" class="btn-secondary">
+        📚 Pilih Modul Lain
+    </a>
 </div>
 
 <footer>
@@ -3006,28 +2812,4 @@ renderQuiz();
   updateUI();
   startProgress();
 })();
-</script>
-<script>
-const loginBtn = document.getElementById("openLogin");
-const loginModal = document.getElementById("loginModal");
-const closeModal = document.querySelector(".close-modal");
-
-if(loginBtn){
-    loginBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        loginModal.classList.add("active");
-    });
-}
-
-if(closeModal){
-    closeModal.addEventListener("click", function(){
-        loginModal.classList.remove("active");
-    });
-}
-
-window.addEventListener("click", function(e){
-    if(e.target === loginModal){
-        loginModal.classList.remove("active");
-    }
-});
 </script>
